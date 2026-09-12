@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Setelah domain aktif, tambahkan baris berikut dan buat file sitemap.xml:
+# Sitemap: https://DOMAIN-ANDA.com/sitemap.xml
