@@ -1171,7 +1171,7 @@ header[id] {
 
 /* lifetime promo — full-width navy card under the plans */
 .life {
-  margin-top: 20px;
+  margin-top: clamp(30px, 4vw, 44px);
   display: grid;
   gap: 24px;
   padding: 30px 26px;
