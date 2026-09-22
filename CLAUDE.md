@@ -38,7 +38,7 @@ There is no build or dev server tooling in this repo. Open [index.html](index.ht
 This is a marketing page, so treat the metadata as part of the product:
 
 - The JSON-LD `@graph` at the bottom of [index.html](index.html) carries `Organization`, `Product` (one `Offer` per package), and `FAQPage` (mirroring the `.matrix` rows). Structured data must match what is visibly on the page — when a price, package, or matrix row changes, change the JSON-LD in the same edit, or Google flags the mismatch.
-- The live domain is `https://edupedia-scivers.my.id/`. It is hardcoded as an absolute URL in the `<head>` (canonical, `og:url`, `og:image`, `twitter:image`), in the JSON-LD (`@id`, `url`, `logo`, `image`), in [robots.txt](robots.txt), and in [sitemap.xml](sitemap.xml). If the domain changes, update all of them together. Bump `<lastmod>` in the sitemap after meaningful content changes.
+- The live domain is `https://edupedia-sciverse.my.id/`. It is hardcoded as an absolute URL in the `<head>` (canonical, `og:url`, `og:image`, `twitter:image`), in the JSON-LD (`@id`, `url`, `logo`, `image`), in [robots.txt](robots.txt), and in [sitemap.xml](sitemap.xml). If the domain changes, update all of them together. The misspelled `edupedia-scivers.my.id` (no trailing "e") was the first domain; it only 301-redirects to the live one through a Cloudflare Redirect Rule, so never put it back in the code. Bump `<lastmod>` in the sitemap after meaningful content changes.
 - [public/og-image.png](public/og-image.png) (1200×630) was generated programmatically with Pillow rather than drawn by hand; regenerate rather than hand-edit if the offer changes.
 
 ## Content notes

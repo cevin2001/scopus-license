@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://edupedia-scivers.my.id/sitemap.xml
+Sitemap: https://edupedia-sciverse.my.id/sitemap.xml
