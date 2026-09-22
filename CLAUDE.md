@@ -14,6 +14,13 @@ A single static landing page (Indonesian-language) marketing licensed Scopus acc
 - [public/js/main.js](public/js/main.js) — loaded at the end of `<body>`; runs all interactive behavior (see below)
 - [public/favicon.svg](public/favicon.svg) / [public/apple-touch-icon.png](public/apple-touch-icon.png) / [public/og-image.png](public/og-image.png) — brand mark, touch icon, and link-share preview. The favicon SVG and the inline `.brand__mark` SVG in [index.html](index.html) are the same artwork duplicated; edit both together.
 
+## Hosting
+
+Hosted on **Cloudflare Pages** (free plan), connected to the GitHub repo: every push to `main` deploys automatically, with no build command and `/` as the output directory. The repo root is the site root, so every tracked file is published.
+
+- [_headers](_headers): security headers, plus cache rules. Images are cached for a year as `immutable`, so give a changed image a new filename instead of overwriting it. CSS/JS are cached for one day because their filenames are not fingerprinted.
+- [_redirects](_redirects): path redirects, such as hiding `CLAUDE.md`. Redirecting `www` to the bare domain is a domain-level redirect that Pages `_redirects` cannot do, so it lives in a Redirect Rule in the Cloudflare dashboard.
+
 ## Running / previewing
 
 There is no build or dev server tooling in this repo. Open [index.html](index.html) directly in a browser, or serve the directory with any static file server (e.g. `npx serve .`) so relative asset paths resolve correctly.
@@ -31,7 +38,7 @@ There is no build or dev server tooling in this repo. Open [index.html](index.ht
 This is a marketing page, so treat the metadata as part of the product:
 
 - The JSON-LD `@graph` at the bottom of [index.html](index.html) carries `Organization`, `Product` (one `Offer` per package), and `FAQPage` (mirroring the `.matrix` rows). Structured data must match what is visibly on the page — when a price, package, or matrix row changes, change the JSON-LD in the same edit, or Google flags the mismatch.
-- Canonical, `og:url`, and `og:image` are **commented out** in the `<head>` because they require absolute URLs and no domain is chosen yet. Uncomment and replace `DOMAIN-ANDA.com` once it is. Same for the `Sitemap:` line in [robots.txt](robots.txt).
+- The live domain is `https://edupedia-scivers.my.id/`. It is hardcoded as an absolute URL in the `<head>` (canonical, `og:url`, `og:image`, `twitter:image`), in the JSON-LD (`@id`, `url`, `logo`, `image`), in [robots.txt](robots.txt), and in [sitemap.xml](sitemap.xml). If the domain changes, update all of them together. Bump `<lastmod>` in the sitemap after meaningful content changes.
 - [public/og-image.png](public/og-image.png) (1200×630) was generated programmatically with Pillow rather than drawn by hand; regenerate rather than hand-edit if the offer changes.
 
 ## Content notes
