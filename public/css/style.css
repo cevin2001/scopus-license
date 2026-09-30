@@ -1062,7 +1062,8 @@ header[id] {
 }
 /* six tracks so the five cards sit 3-up, with the last row centred.
    The lifetime promo (.life, 2nd child) follows Paket 1 in the markup so it
-   sits right under it on mobile; on desktop it spans row 2 between the rows. */
+   sits right under it on mobile; on desktop it drops below both plan rows so
+   the 3 + 2 grid stays whole. */
 @media (min-width: 900px) {
   .plans {
     grid-template-columns: repeat(6, 1fr);
@@ -1073,15 +1074,16 @@ header[id] {
   }
   .plans > .life {
     grid-column: 1 / -1;
-    grid-row: 2;
+    grid-row: 3;
+    margin-top: clamp(14px, 2vw, 28px);
   }
   .plan:nth-child(5) {
     grid-column: 2 / span 2;
-    grid-row: 3;
+    grid-row: 2;
   }
   .plan:nth-child(6) {
     grid-column: 4 / span 2;
-    grid-row: 3;
+    grid-row: 2;
   }
 }
 .plan {
