@@ -504,6 +504,36 @@ h3 {
   background: var(--orange);
   flex: none;
 }
+/* "process first, pay later" promo pill — hero + Paket 1 */
+.promo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--orange);
+  color: var(--harbour);
+  font-family: var(--util);
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1.3;
+}
+.promo__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--harbour);
+  flex: none;
+}
+.hero__promo {
+  margin-bottom: 16px;
+}
+.plan__promo {
+  align-self: flex-start;
+  margin-top: 14px;
+  font-size: 0.74rem;
+}
 .hero__sub {
   margin: 24px 0 0;
   font-size: clamp(1rem, 1.25vw, 1.1rem);
