@@ -504,35 +504,44 @@ h3 {
   background: var(--orange);
   flex: none;
 }
-/* "process first, pay later" promo pill — hero + Paket 1 */
+/* "process first, pay later" promo — quiet glass pill with an orange seal */
 .promo {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   margin: 0;
-  padding: 6px 14px;
+  padding: 6px 18px 6px 6px;
   border-radius: 999px;
-  background: var(--orange);
-  color: var(--harbour);
-  font-family: var(--util);
-  font-size: 0.82rem;
-  font-weight: 800;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(245, 146, 30, 0.38);
+  box-shadow: 0 10px 26px -18px rgba(11, 36, 72, 0.45);
+  font-family: var(--display);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
   line-height: 1.3;
+  color: var(--harbour);
 }
-.promo__dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--harbour);
+.promo em {
+  font-style: italic;
+  font-weight: 600;
+  color: var(--orange-d);
+}
+.promo__icon {
+  width: 24px;
+  height: 24px;
   flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #f7a53a, var(--orange));
+  color: var(--white);
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-style: normal;
 }
 .hero__promo {
-  margin-bottom: 16px;
-}
-.plan__promo {
-  align-self: flex-start;
-  margin-top: 14px;
-  font-size: 0.74rem;
+  margin-bottom: 18px;
 }
 .hero__sub {
   margin: 24px 0 0;
@@ -1051,7 +1060,9 @@ header[id] {
   gap: 16px;
   margin-top: clamp(30px, 4vw, 44px);
 }
-/* six tracks so the five cards sit 3-up, with the last row centred */
+/* six tracks so the five cards sit 3-up, with the last row centred.
+   The lifetime promo (.life, 2nd child) follows Paket 1 in the markup so it
+   sits right under it on mobile; on desktop it spans row 2 between the rows. */
 @media (min-width: 900px) {
   .plans {
     grid-template-columns: repeat(6, 1fr);
@@ -1060,11 +1071,17 @@ header[id] {
   .plan {
     grid-column: span 2;
   }
-  .plan:nth-child(4) {
-    grid-column: 2 / span 2;
+  .plans > .life {
+    grid-column: 1 / -1;
+    grid-row: 2;
   }
   .plan:nth-child(5) {
+    grid-column: 2 / span 2;
+    grid-row: 3;
+  }
+  .plan:nth-child(6) {
     grid-column: 4 / span 2;
+    grid-row: 3;
   }
 }
 .plan {
@@ -1199,9 +1216,8 @@ header[id] {
   width: 100%;
 }
 
-/* lifetime promo — full-width navy card under the plans */
+/* lifetime promo — full-width navy card right under Paket 1 */
 .life {
-  margin-top: clamp(30px, 4vw, 44px);
   display: grid;
   gap: 24px;
   padding: 30px 26px;
